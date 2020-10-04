@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<title>PLACAR</title>
+		
+		<link rel="stylesheet" href="/style.css">
+	</head>
+	<body>
+		<h1>Bem vinda, Maria!</h1>
+		<h2>Acompanhe os resultados dos seus jogos.</h2>
+		
+		<form method="POST" action="/">
+			<fieldset id="Jogo"> <legend>Mapeamento de desempenho</legend>
+				<p>Jogo:  <input type="number" name="jogo" /> </p>
+				<p>Placar: <input type="number" name="placar"  min="0" max="1000"/> </p>
+				<p>Min Temporada: <input type="number" name="mintemporada"  /> </p>
+				<p>Max Temporada: <input type="number" name="maxtemporada"  /> </p>
+				<p>Recorde Max: <input type="number" name="recordemin"  /> </p>
+				<p>Recorde Min: <input type="number" name="recordemax" /> </p>
+			    
+                <button type="submit">INSERIR</button>
+			</fieldset>
+		</form>
+		
+		<table border="1">  
+			<tr>
+				<td>Jogo</td>
+				<td>Placar</td>
+				<td>Minimo da Temporada</td>
+				<td>Maximo da temporada</td>
+				<td>Quebra recorde min</td>
+				<td>Quebra recorde máx</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>12</td>
+				<td>12</td>
+				<td>12</td>
+				<td>0</td>
+				<td>0</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>24</td>
+				<td>12</td>
+				<td>24</td>
+				<td>0</td>
+				<td>1</td>
+			</tr>
+			
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>10</td>
+				<td>10</td>
+				<td>24</td>
+				<td>1</td>
+				<td>1</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>24</td>
+				<td>10</td>
+				<td>24</td>
+				<td>1</td>
+				<td>1</td>
+			</tr>
+
+			{% for resultado in resultados %}
+
+				<tr>
+				<td>{{resultado.jogo}}</td>
+				<td>{{resultado.placar}}</td>
+				<td>{{resultado.mintemporada}}</td>
+				<td>{{resultado.maxtemporada}}</td>
+				<td>{{resultado.recordemin}}</td>
+				<td>{{resultado.recordemax}}</td>
+				</tr>
+			{% endfor %}
+		</table>
+		
+		
+		
+	</body>
+</html>	
+
